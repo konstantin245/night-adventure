@@ -20,6 +20,12 @@ class Platform
     txTransparentBlt(txDC(),   x,   y, w, h,image,0,0,TX_WHITE);
     }
 
+int OnPlatform(int x1)
+    {
+        if (x1>x && x1<x+w) return 1;
+        return 0;
+
+    }
 
 };
 
