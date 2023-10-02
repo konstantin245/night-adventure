@@ -11,7 +11,7 @@ int personY;
 int personHP;
 int personAR;
 int BaseY=583;
-int GravityOn=1;
+int GravityOn=0;
 int BaseSpeed=7;
 int JumpOn=0;
 int i;
@@ -42,19 +42,20 @@ int i;
 
     int Fall()
     {
-    if (personY<BaseY&&GravityOn) personY=personY+8;
+    if (personY<BaseY+100&&GravityOn) personY=personY+12;
     }
 
 
     int Jump()
     {
-        if (JumpOn)
+        if (personY>BaseY+10) {JumpOn=0;GravityOn=0;personY=personY-10;}
+        if (JumpOn==1)
         {
-        if (BaseY-250<personY) personY=personY-25;
-        else JumpOn=0; GravityOn=1;
-
+        if ((BaseY-250<personY)&&GravityOn==0) {personY=personY-25;}
+        else {GravityOn=1;}
         }
     }
+
 
     int Move()
     {
@@ -76,9 +77,8 @@ int i;
         if (GetAsyncKeyState(VK_SPACE))
         {
         JumpOn=1;
-        GravityOn=0;
         }
 
-    }
 
+    }
 };

@@ -27,12 +27,18 @@ int main()
     Background(land,1300,700);
     p1.Draw();
     p2.Draw();
+    p1.OnPlatform(Picle.personX);
+    p2.OnPlatform(Picle.personX);
     Picle.Move();
     Picle.Draw();
     Picle.Fall();
-    Picle.Jump();
+    Picle.Jump();/*
+    cout<<Picle.JumpOn;
+    cout<<Picle.GravityOn;*/
     txLine(0,600,1300,600);
 
+    //if (Picle.personY>p1.platformY && Picle.personX>p1.platformX && Picle.personX<p1.platformX+p1.platformW)  Picle.BaseY=p1.platformY;
+    //else Picle.BaseY=583;
     txEnd();
     Sleep(30);
     txClear();

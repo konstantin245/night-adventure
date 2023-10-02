@@ -3,29 +3,30 @@
 class Platform
 {
     public:
-    int x, y;
+    int platformX, platformY;
     string file;
-    int w, h;
+    int platformW, platformH;
     HDC  image;
 
     Platform(int x1, int y1, string file1, int w1, int h1)
     {
-        x=x1;y=y1;file=file1;w=w1;h=h1;
+        platformX=x1;platformY=y1;file=file1;platformW=w1;platformH=h1;
         image = txLoadImage(file.c_str());
+
+    }
+
+    int OnPlatform(int x1)
+    {
+        if (x1>platformX && x1<platformX+platformW) return 1;
+        return 0;
 
     }
 
     int Draw()
     {
-    txTransparentBlt(txDC(),   x,   y, w, h,image,0,0,TX_WHITE);
+    txTransparentBlt(txDC(),   platformX,   platformY, platformW, platformH,image,0,0,TX_WHITE);
     }
 
-int OnPlatform(int x1)
-    {
-        if (x1>x && x1<x+w) return 1;
-        return 0;
-
-    }
 
 };
 
