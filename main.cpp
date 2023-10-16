@@ -13,36 +13,53 @@ int main()
     HDC  land = txLoadImage("background.bmp");
 
     Person Picle(100,100,5,0);
-    Platform  p1(200,400,"platform.bmp",480,128);
-    Platform  p2(800,400,"platform.bmp",480,128);
+
+    Platform p[2]={
+    Platform(200,400,"platform.bmp",480,128),
+    Platform(800,400,"platform.bmp",480,128)
+    };
 
     //Person.picture;
     //picture.picRun[0]=txLoadImage("pickleidle.bmp");
 
-
+    Platform  Plat(800,400,"platform.bmp",480,128);
 
     while (1)
     {
     txBegin();
     Background(land,1300,700);
-    p1.Draw();
-    p2.Draw();
-    p1.OnPlatform(Picle.personX);
-    p2.OnPlatform(Picle.personX);
+    int NaPlatform=0;
+    Picle.JumpH=250;
+    for (int i=0;i<2;i++)
+    {
+    p[i].Draw();
+    Plat=p[i];
+
+    if ((Plat.OnPlatformX(Picle.personX))&&(Plat.OnPlatformY(Picle.personY))){ Picle.BaseY=Plat.platformY; NaPlatform=1;}
+
+    if (Plat.OnPlatformX(Picle.personX)&&Picle.personY>500) Picle.JumpH=25;
+
+    /*if ((Plat.OnPlatformX(Picle.personX))&&(Plat.OnPlatformY(Picle.personY))){ Picle.BaseY=Plat.platformY;}
+    else {if (Picle.BaseY!=583) {Picle.BaseY=583; Picle.GravityOn=1;}}
+
+    if (Plat.OnPlatformX(Picle.personX)&&Picle.personY>400) Picle.JumpH=25;
+    else Picle.JumpH=250;
+    */
+    }
+    if ((Picle.BaseY!=583)&&NaPlatform==0) {Picle.BaseY=583; Picle.GravityOn=1;}
+
     Picle.Move();
     Picle.Draw();
     Picle.Fall();
-    Picle.Jump();/*
-    cout<<Picle.JumpOn;
-    cout<<Picle.GravityOn;*/
+    Picle.Jump();
     txLine(0,600,1300,600);
 
-    //if (Picle.personY>p1.platformY && Picle.personX>p1.platformX && Picle.personX<p1.platformX+p1.platformW)  Picle.BaseY=p1.platformY;
-    //else Picle.BaseY=583;
     txEnd();
     Sleep(30);
     txClear();
-    }
 
     }
+    }
+
+
 
