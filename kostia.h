@@ -11,9 +11,10 @@ int personY;
 int personHP;
 int personAR;
 int BaseY=583;
+int JumpH=250;
 int GravityOn=0;
 int BaseSpeed=7;
-int JumpOn=0;
+int JumpOn=1;
 int i;
 //HDC picRun[3];
 //HDC pic;
@@ -51,7 +52,7 @@ int i;
         if (personY>BaseY+10) {JumpOn=0;GravityOn=0;personY=personY-10;}
         if (JumpOn==1)
         {
-        if ((BaseY-250<personY)&&GravityOn==0) {personY=personY-25;}
+        if ((BaseY-JumpH<personY)&&GravityOn==0) {personY=personY-25;}
         else {GravityOn=1;}
         }
     }
