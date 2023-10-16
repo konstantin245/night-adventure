@@ -39,19 +39,19 @@ class Platform
 
 };
 
-class Background1
+class Background
 {
     public:
      int x, y;
     string file;
     int w, h;
     HDC  image;
- Background1(HDC b , int w1 , int h1){
+ Background(HDC b , int w1 , int h1){
  x=0;y=0;image=b;w=w1;h=h1;}
 
 int Draw()
 {
-   txBitBlt (txDC(),   0,   0, w, h,land,0,0);
+   txBitBlt (txDC(),   0,   0, w, h,image,0,0);
 
 };
 
@@ -60,12 +60,8 @@ int Draw()
     x=x-b;
 
     }
-};
 
 
-int Background(HDC land, int w,int h)
-{
-   txBitBlt (txDC(),   0,   0, w, h,land,0,0);
 
 };
 
