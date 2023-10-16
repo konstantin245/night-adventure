@@ -33,14 +33,6 @@ int i;
         txCircle(personX,personY,15);
     }
 
-
-   /* int RicLoad()
-    {
-
-
-    }
-*/
-
     int Fall()
     {
     if (personY<BaseY+100&&GravityOn) personY=personY+12;

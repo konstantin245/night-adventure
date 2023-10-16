@@ -10,9 +10,13 @@ int main()
     txCreateWindow(1300,700);
     txClear();
     txSetColour(TX_BLACK,2);
-    HDC  land = txLoadImage("background.bmp");
+    HDC  pic = txLoadImage("background.bmp");
 
     Person Picle(100,100,5,0);
+
+    Background b(pic,1300,700);
+    Background b2(pic,1300,700);
+    b2.x=1300;
 
     Platform p[2]={
     Platform(200,400,"platform.bmp",480,128),
@@ -27,9 +31,19 @@ int main()
     while (1)
     {
     txBegin();
-    Background(land,1300,700);
     int NaPlatform=0;
     Picle.JumpH=250;
+
+
+    if (GetAsyncKeyState('D'))
+        {b.MoveLeft(1);b2.MoveLeft(1);}
+    if (GetAsyncKeyState('A'))
+        {b.MoveLeft(-1);b2.MoveLeft(-1);}
+
+    b.Draw();
+    b2.Draw();
+
+
     for (int i=0;i<2;i++)
     {
     p[i].Draw();
@@ -39,14 +53,13 @@ int main()
 
     if (Plat.OnPlatformX(Picle.personX)&&Picle.personY>500) Picle.JumpH=25;
 
-    /*if ((Plat.OnPlatformX(Picle.personX))&&(Plat.OnPlatformY(Picle.personY))){ Picle.BaseY=Plat.platformY;}
-    else {if (Picle.BaseY!=583) {Picle.BaseY=583; Picle.GravityOn=1;}}
+    if (GetAsyncKeyState('D'))
+        p[i].MoveLeft(-1);
 
-    if (Plat.OnPlatformX(Picle.personX)&&Picle.personY>400) Picle.JumpH=25;
-    else Picle.JumpH=250;
-    */
+     if (GetAsyncKeyState('A'))
+        p[i].MoveLeft(1);
     }
-    if ((Picle.BaseY!=583)&&NaPlatform==0) {Picle.BaseY=583; Picle.GravityOn=1;}
+    if ((Picle.BaseY!=583)&&NaPlatform==0) {Picle.BaseY=583; Picle.GravityOn=1;} //проверка находитьс€ хот€ бы на одной платформе
 
     Picle.Move();
     Picle.Draw();
