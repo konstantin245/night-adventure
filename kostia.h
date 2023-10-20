@@ -70,12 +70,13 @@ int i;
         {
         JumpOn=1;
         }
-    /*int Death(int x, int y)
-    {
-    if ()
-    }*/
+    }
 
-}
+    int Death(int x, int y, int cik1)
+    {
+    if (personX==x&&personY==y) {txSetFillColour(TX_RED); txRectangle(0,0,1300,700); txTextOut(1300,700,"YOU DEATH"); cik1=0;}
+    }
+
 };
 
 class Vragi
