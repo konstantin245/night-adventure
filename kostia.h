@@ -2,7 +2,6 @@
 #include "TXLib.h"
 
 using namespace std;
-
 class Person
 {
 public:
@@ -71,7 +70,39 @@ int i;
         {
         JumpOn=1;
         }
+    /*int Death(int x, int y)
+    {
+    if ()
+    }*/
 
+}
+};
 
+class Vragi
+{
+public:
+int vragiX;
+int vragiY;
+int vragiHP;
+
+    Vragi(int x,int y,int hp)
+    {
+        vragiX=x;
+        vragiY=y;
+        vragiHP=hp;
+    }
+
+    int Draw()
+    {
+        txCircle(vragiX,vragiY,20);
+    }
+
+    int Move(int x, int y)
+    {
+        if (x>vragiX) vragiX=vragiX+4;
+        else vragiX=vragiX-4;
+
+        if (y>vragiY) vragiY=vragiY+4;
+        else vragiY=vragiY-4;
     }
 };

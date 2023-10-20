@@ -13,10 +13,11 @@ int main()
     HDC  pic = txLoadImage("background.bmp");
 
     Person Picle(100,100,5,0);
+    Vragi Vrag(140,140,8);
 
-    Background b(pic,1300,700);
-    Background b2(pic,1300,700);
-    b2.x=1300;
+    Background b(pic,1290,700);
+    Background b2(pic,1290,700);
+    b2.x=1290;
 
     Platform p[2]={
     Platform(200,400,"platform.bmp",480,128),
@@ -36,9 +37,9 @@ int main()
 
 
     if (GetAsyncKeyState('D'))
-        {b.MoveLeft(1);b2.MoveLeft(1);}
+        {b.MoveLeft(5);b2.MoveLeft(5);}
     if (GetAsyncKeyState('A'))
-        {b.MoveLeft(-1);b2.MoveLeft(-1);}
+        {b.MoveLeft(-5);b2.MoveLeft(-5);}
 
     b.Draw();
     b2.Draw();
@@ -54,12 +55,15 @@ int main()
     if (Plat.OnPlatformX(Picle.personX)&&Picle.personY>500) Picle.JumpH=25;
 
     if (GetAsyncKeyState('D'))
-        p[i].MoveLeft(-1);
+        p[i].MoveLeft(5);
 
      if (GetAsyncKeyState('A'))
-        p[i].MoveLeft(1);
+        p[i].MoveLeft(-5);
     }
     if ((Picle.BaseY!=583)&&NaPlatform==0) {Picle.BaseY=583; Picle.GravityOn=1;} //проверка находитьс€ хот€ бы на одной платформе
+
+    Vrag.Move(Picle.personX,Picle.personY);
+    Vrag.Draw();
 
     Picle.Move();
     Picle.Draw();
