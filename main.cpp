@@ -11,10 +11,9 @@ int main()
     txClear();
     txSetColour(TX_BLACK,2);
     HDC  pic = txLoadImage("background.bmp");
-    int cik=1;
 
     Person Picle(100,100,5,0);
-    Vragi Vrag(140,140,8);
+    Vragi Vrag(500,140,8);
 
     Background b(pic,1290,700);
     Background b2(pic,1290,700);
@@ -30,7 +29,7 @@ int main()
 
     Platform  Plat(800,400,"platform.bmp",480,128);
 
-    while (cik)
+    while (Picle.cik)
     {
     txBegin();
     int NaPlatform=0;
@@ -53,7 +52,7 @@ int main()
 
     if ((Plat.OnPlatformX(Picle.personX))&&(Plat.OnPlatformY(Picle.personY))){ Picle.BaseY=Plat.platformY; NaPlatform=1;}
 
-    if (Plat.OnPlatformX(Picle.personX)&&Picle.personY>500) Picle.JumpH=25;
+    if (Plat.OnPlatformX(Picle.personX)&&Picle.personY>400) Picle.JumpH=25;
 
     if (GetAsyncKeyState('D'))
         p[i].MoveLeft(5);
@@ -63,7 +62,7 @@ int main()
     }
     if ((Picle.BaseY!=583)&&NaPlatform==0) {Picle.BaseY=583; Picle.GravityOn=1;} //проверка находитьс€ хот€ бы на одной платформе
 
-    Vrag.Move(Picle.personX,Picle.personY, cik);
+    Vrag.Move(Picle.personX,Picle.personY);
     Vrag.Draw();
 
     Picle.Move();

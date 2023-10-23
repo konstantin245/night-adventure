@@ -14,6 +14,7 @@ int JumpH=250;
 int GravityOn=0;
 int BaseSpeed=7;
 int JumpOn=1;
+int cik=1;
 int i;
 //HDC picRun[3];
 //HDC pic;
@@ -72,9 +73,9 @@ int i;
         }
     }
 
-    int Death(int x, int y, int cik1)
+    int Death(int x, int y)
     {
-    if (personX==x&&personY==y) {txSetFillColour(TX_RED); txRectangle(0,0,1300,700); txTextOut(1300,700,"YOU DEATH"); cik1=0;}
+    if ((personX>x-25&&personX<x+25) && personY>y-25&&personY<y+25) {txSetFillColour(TX_RED); txRectangle(0,0,1300,700); txTextOut(1300,700,"YOU DEATH"); cik=0;}
     }
 
 };
@@ -100,10 +101,10 @@ int vragiHP;
 
     int Move(int x, int y)
     {
-        if (x>vragiX) vragiX=vragiX+4;
-        else vragiX=vragiX-4;
+        if (x>vragiX) vragiX=vragiX+1;
+        else vragiX=vragiX-1;
 
-        if (y>vragiY) vragiY=vragiY+4;
-        else vragiY=vragiY-4;
+        if (y>vragiY) vragiY=vragiY+1;
+        else vragiY=vragiY-1;
     }
 };
