@@ -3,6 +3,21 @@
 #include "kostia.h"
 #include "nikita.h"
 
+int randPlatform()
+{
+    int x; //х платформы 1
+    int x1; //х платформы 2
+    int y; //y платформы 1
+    int y1; //y платформы 2
+
+    if (Picle.personX>b2.x+50)
+        {
+            x=random(10, 1100); x1=random(10, 1100); y=random(583, 10); y1=random(583, 10);
+            p[i]=Platform(x,y,"platform.bmp",480,128);
+        }
+
+
+}
 int main()
 
 
@@ -17,12 +32,13 @@ int main()
 
     Background b(pic,1290,700);
     Background b2(pic,1290,700);
-    b2.x=1290;
 
-    Platform p[2]={
+    Platform p[1000]={
     Platform(200,400,"platform.bmp",480,128),
     Platform(800,400,"platform.bmp",480,128)
     };
+
+    b2.x=1285;
 
     //Person.picture;
     //picture.picRun[0]=txLoadImage("pickleidle.bmp");
@@ -35,11 +51,10 @@ int main()
     int NaPlatform=0;
     Picle.JumpH=250;
 
-
     if (GetAsyncKeyState('D'))
-        {b.MoveLeft(5);b2.MoveLeft(5);}
+        {b.MoveLeft(7);b2.MoveLeft(7);}
     if (GetAsyncKeyState('A'))
-        {b.MoveLeft(-5);b2.MoveLeft(-5);}
+        {b.MoveLeft(-7);b2.MoveLeft(-7);}
 
     b.Draw();
     b2.Draw();
@@ -55,16 +70,16 @@ int main()
     if (Plat.OnPlatformX(Picle.personX)&&Picle.personY>400) Picle.JumpH=25;
 
     if (GetAsyncKeyState('D'))
-        p[i].MoveLeft(5);
+        p[i].MoveLeft(7);
 
      if (GetAsyncKeyState('A'))
-        p[i].MoveLeft(-5);
+        p[i].MoveLeft(-7);
     }
-    if ((Picle.BaseY!=583)&&NaPlatform==0) {Picle.BaseY=583; Picle.GravityOn=1;} //ДЏД‘Г®ГўДєД‘Д™Е• Г­Е•Е‘Г®Г¤ДЌЕ€ГјЕ„Л™ Е‘Г®Е€Л™ ГЎЕ± Г­Е• Г®Г¤Г­Г®Г© ДЏГ«Е•Е€ГґГ®Д‘Д›Дє
+    if ((Picle.BaseY!=583)&&NaPlatform==0) {Picle.BaseY=583; Picle.GravityOn=1;} //проверка находиться хотя бы на одной платформе
 
     Vrag.Move(Picle.personX,Picle.personY);
     Vrag.Draw();
-+5
+
     Picle.Move();
     Picle.Draw();
     Picle.Fall();
@@ -79,5 +94,6 @@ int main()
 
     }
     }
+
 
 

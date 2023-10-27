@@ -58,12 +58,10 @@ int Draw()
 
     int MoveLeft(int b)
     {
-    if(x<-1300 )x=1300;
+    if(x<-1300 )x=1265;
     else x=x-b;
     }
-int MoveRight(int b)
-    {
-    if(x<0 )x=-1300;
-    else x=x+b;
-    }
+
 };
+
+
