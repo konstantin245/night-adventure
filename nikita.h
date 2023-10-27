@@ -3,52 +3,45 @@
 class Platform
 {
     public:
-    int platformX, platformY;
+    int x, y;
     string file;
-    int platformW, platformH;
+    int w, h;
     HDC  image;
-
-
 
     Platform(int x1, int y1, string file1, int w1, int h1)
     {
-        platformX=x1;platformY=y1;file=file1;platformW=w1;platformH=h1;
+        x=x1;y=y1;file=file1;w=w1;h=h1;
         image = txLoadImage(file.c_str());
 
     }
 
-    int OnPlatformX(int x1)
-    {
-        if (x1>platformX && x1<platformX+platformW) return 1;
-        return 0;
-
-    }
-
-    int OnPlatformY(int y1)
-    {
-        if (y1>platformY && y1<platformY+platformH) return 1;
-        return 0;
-
-    }
     int Draw()
     {
-        txTransparentBlt(txDC(),   platformX,   platformY, platformW, platformH,image,0,0,TX_WHITE);
+    txTransparentBlt(txDC(),   x,   y, w, h,image,0,0,TX_WHITE);
+
     }
 
-    int MoveLeft(int n)
+    int OnPlatform(int x1)
     {
-        platformX=platformX-n;
+        if (x1>x && x1<x+w) return 1;
+        return 0;
+
     }
 
-    };
+      int MoveLeft(int n)
+    {
+    x=x-n;
+
+    }
+};
 class Background
 {
     public:
-    int x=0, y=0;
-    string file;
+     int x, y;
     int w, h;
     HDC  image;
-    Background(HDC b , int w1 , int h1){x=0;y=0;image=b;w=w1;h=h1;}
+ Background(HDC b , int w1 , int h1){
+ x=0;y=0;image=b;w=w1;h=h1;}
 
 int Draw()
 {
@@ -58,10 +51,11 @@ int Draw()
 
     int MoveLeft(int b)
     {
-    if(x<-1300 )x=1300;
-    else x=x-b;
+ if(x<-1300 )x=1300;
+    else
+    x=x-b;
+  //cout<<x<<" ";
+
     }
 
 };
-
-

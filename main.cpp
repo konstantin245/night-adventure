@@ -60,11 +60,11 @@ int main()
      if (GetAsyncKeyState('A'))
         p[i].MoveLeft(-5);
     }
-    if ((Picle.BaseY!=583)&&NaPlatform==0) {Picle.BaseY=583; Picle.GravityOn=1;} //проверка находиться хотя бы на одной платформе
+    if ((Picle.BaseY!=583)&&NaPlatform==0) {Picle.BaseY=583; Picle.GravityOn=1;} //ДЏД‘Г®ГўДєД‘Д™Е• Г­Е•Е‘Г®Г¤ДЌЕ€ГјЕ„Л™ Е‘Г®Е€Л™ ГЎЕ± Г­Е• Г®Г¤Г­Г®Г© ДЏГ«Е•Е€ГґГ®Д‘Д›Дє
 
     Vrag.Move(Picle.personX,Picle.personY);
     Vrag.Draw();
-
++5
     Picle.Move();
     Picle.Draw();
     Picle.Fall();
@@ -79,6 +79,5 @@ int main()
 
     }
     }
-
 
 
