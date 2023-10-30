@@ -41,6 +41,8 @@ class Platform
     }
 
     };
+
+
 class Background
 {
     public:
@@ -58,10 +60,10 @@ int Draw()
 
     int MoveLeft(int b)
     {
-    if(x<-1300 )x=1265;
-    else x=x-b;
+    if(x<-1290 )x=1285;
+    if(x>1290 )x=-1285;
+
+    x=x-b;
     }
 
 };
-
-
