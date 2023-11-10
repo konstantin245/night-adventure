@@ -1,47 +1,91 @@
 #include "TXLib.h"
 #include <string>
-class Platform
-{
-public:
-    int x, y;
-    string file;
-    int w, h;
-    HDC  image;
-
-    Platform(int x1, int y1, string file1, int w1, int h1)
-    {
-        x=x1;y=y1;file=file1;w=w1;h=h1;
-        image = txLoadImage(file.c_str());
-
-    }
-
-    int Draw()
-    {
-    txTransparentBlt(txDC(),   x,   y, w, h,image,0,0,TX_WHITE);
-    }
-
-
-};
-
-int Background(string file, int w,int h)
-{
-   HDC  land = txLoadImage(file.c_str());
-   txBitBlt (txDC(),   0,   0, w, h,land,0,0);
-
-};
-
+#include "kostia.h"
+#include "nikita.h"
 
 int main()
 
-    {
-        txCreateWindow (1300, 700);
-        Background("background.bmp",1300,700);
-        Platform  p1(200,400,"platform.bmp",480,128);
-        Platform  p2(800,400,"platform.bmp",480,128);
-        p1.Draw();
-        p2.Draw();
-        cout<<p2.x<<p2.y<<p1.x<<p1.y;
-        cout<<p2.w<<p2.h<<p1.w<<p1.h;
-    return 0;
-    }
 
+    {
+    txCreateWindow(1300,700);
+    txClear();
+    txSetColour(TX_BLACK,2);
+
+    HDC  pic = txLoadImage("background.bmp");
+int y;
+    Person Picle(100,100,5,0);
+    Vragi Vrag(500,140,8);
+
+    Background b(pic,1290,700);
+    Background b2(pic,1290,700);
+    b2.x=1290;
+
+
+    y = random(300,550);
+    Platform p[10];
+    p[0]= Platform(200,y,"platform.bmp",480,128);
+   y = random(300,550);
+    p[1]=Platform(800,y,"platform.bmp",480,128);
+    y = random(300,550);
+    p[2]=Platform(1400,y,"platform.bmp",480,128);
+    y = random(300,550);
+     p[3]=Platform(2000,y,"platform.bmp",480,128);
+     y = random(300,550);
+      p[4]=Platform(2600,y,"platform.bmp",480,128);
+       y = random(300,550);
+
+  // Person.picture;
+//   picture.picRun[0]=txLoadImage("pickleidle.bmp");
+   Platform  Plat(800,y,"platform.bmp",480,128);
+
+
+    while (Picle.cik)
+    {
+    txBegin();
+    int NaPlatform=0;
+    Picle.JumpH=250;
+
+
+    if (GetAsyncKeyState('D'))
+        {b.MoveLeft(5);b2.MoveLeft(5);}
+    if (GetAsyncKeyState('A'))
+        {b.MoveLeft(-5);b2.MoveLeft(-5);}
+
+    b.Draw();
+    b2.Draw();
+
+
+    for (int i=0;i<5;i++)
+    {
+    p[i].Draw();
+    Plat=p[i];
+
+    if ((Plat.OnPlatformX(Picle.personX))&&(Plat.OnPlatformY(Picle.personY))){ Picle.BaseY=Plat.platformY; NaPlatform=1;}
+
+    if (Plat.OnPlatformX(Picle.personX)&&Picle.personY>400) Picle.JumpH=25;
+
+    if (GetAsyncKeyState('D'))
+        p[i].MoveLeft(5);
+
+     if (GetAsyncKeyState('A'))
+        p[i].MoveLeft(-5);
+    }
+    if ((Picle.BaseY!=583)&&NaPlatform==0) {Picle.BaseY=583; Picle.GravityOn=1;} //ďđîâĺđęŕ íŕőîäčňüń˙ őîň˙ áű íŕ îäíîé ďëŕňôîđěĺ
+
+    Vrag.Move(Picle.personX,Picle.personY);
+    Vrag.Draw();
+
+    Picle.Move();
+    Picle.Draw();
+    Picle.Fall();
+    Picle.Jump();
+    Picle.Death(Vrag.vragiX,Vrag.vragiY);
+
+    txLine(0,600,1300,600);
+
+    txEnd();
+    Sleep(30);
+    txClear();
+
+    }
+    }
