@@ -24,9 +24,17 @@ class Platform
 
     }
 
-    int OnPlatformY(int y1)
+    int OnPlatformYPerson(int y1)
     {
-        if (y1>platformY && y1<platformY+platformH) return 1;
+        if (y1<platformY+16) return 1;
+        //if (y1>platformY && y1<platformY+16) return 1;
+        return 0;
+
+    }
+
+        int OnPlatformYVrag(int y1)
+    {
+        if (y1>platformY && y1<platformY+16) return 1;
         return 0;
 
     }
@@ -41,8 +49,6 @@ class Platform
     }
 
     };
-
-
 class Background
 {
     public:
@@ -60,10 +66,10 @@ int Draw()
 
     int MoveLeft(int b)
     {
-    if(x<-1290 )x=1285;
-    if(x>1290 )x=-1285;
-
-    x=x-b;
+    if(x<-1300 )x=1265;
+    else x=x-b;
     }
 
 };
+
+

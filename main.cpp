@@ -3,7 +3,7 @@
 #include "kostia.h"
 #include "nikita.h"
 
-int randPlatform()
+/*int randPlatform()
 {
     int x; //х платформы 1
     int x1; //х платформы 2
@@ -17,7 +17,7 @@ int randPlatform()
         }
 
 
-}
+}*/
 int main()
 
 
@@ -27,13 +27,13 @@ int main()
     txSetColour(TX_BLACK,2);
     HDC  pic = txLoadImage("background.bmp");
 
-    Person Picle(100,100,5,0);
+    Person Picle(100,580,5,0);
     Vragi Vrag(500,140,8);
 
     Background b(pic,1290,700);
     Background b2(pic,1290,700);
 
-    Platform p[1000]={
+    Platform p[2]={
     Platform(200,400,"platform.bmp",480,128),
     Platform(800,400,"platform.bmp",480,128)
     };
@@ -49,6 +49,7 @@ int main()
     {
     txBegin();
     int NaPlatform=0;
+    int NaPlatformVrag=0;
     Picle.JumpH=250;
 
     if (GetAsyncKeyState('D'))
@@ -65,7 +66,8 @@ int main()
     p[i].Draw();
     Plat=p[i];
 
-    if ((Plat.OnPlatformX(Picle.personX))&&(Plat.OnPlatformY(Picle.personY))){ Picle.BaseY=Plat.platformY; NaPlatform=1;}
+    if (Plat.OnPlatformX(Vrag.vragiX)&&Plat.OnPlatformYVrag(Vrag.vragiY)) NaPlatformVrag=1;
+    if ((Plat.OnPlatformX(Picle.personX))&&(Plat.OnPlatformYPerson(Picle.personY))){ Picle.BaseY=Plat.platformY; NaPlatform=1;}
 
     if (Plat.OnPlatformX(Picle.personX)&&Picle.personY>400) Picle.JumpH=25;
 
@@ -76,8 +78,7 @@ int main()
         p[i].MoveLeft(-7);
     }
     if ((Picle.BaseY!=583)&&NaPlatform==0) {Picle.BaseY=583; Picle.GravityOn=1;} //проверка находиться хотя бы на одной платформе
-
-    Vrag.Move(Picle.personX,Picle.personY);
+    Vrag.Move(Picle.personX,Picle.personY,NaPlatformVrag);
     Vrag.Draw();
 
     Picle.Move();
@@ -91,8 +92,8 @@ int main()
     txEnd();
     Sleep(30);
     txClear();
-
     }
+    txSetFillColour(TX_RED); txRectangle(0,0,1300,700); txSetColour(TX_BLACK); txSelectFont("Arial",150); txDrawText(0,0,1300,700,"YOU DEATH");
     }
 
 

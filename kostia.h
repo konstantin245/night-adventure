@@ -12,7 +12,7 @@ int personAR;
 int BaseY=583;
 int JumpH=250;
 int GravityOn=0;
-int BaseSpeed=7;
+int BaseSpeed=9;
 int JumpOn=1;
 int cik=1;
 int i;
@@ -46,6 +46,8 @@ int i;
         {
         if ((BaseY-JumpH<personY)&&GravityOn==0) {personY=personY-25;}
         else {GravityOn=1;}
+        /*if (BaseY<1000){if((BaseY-600<personY)&&GravityOn==0) {personY=personY-25;}
+        else {GravityOn=1;}}*/
         }
     }
 
@@ -75,7 +77,7 @@ int i;
 
     int Death(int x, int y)
     {
-    if ((personX>x-25&&personX<x+25) && personY>y-25&&personY<y+25) {txSetFillColour(TX_RED); txRectangle(0,0,1300,700); txTextOut(1300,700,"YOU DEATH"); cik=0;}
+    if ((personX>x-25&&personX<x+25) && personY>y-25&&personY<y+25) {cik=0;}
     }
 
 };
@@ -86,6 +88,7 @@ public:
 int vragiX;
 int vragiY;
 int vragiHP;
+int arrow=1;
 
     Vragi(int x,int y,int hp)
     {
@@ -99,12 +102,21 @@ int vragiHP;
         txCircle(vragiX,vragiY,20);
     }
 
-    int Move(int x, int y)
+    int Move(int x, int y, int NaPlatformV, int BaseY=583)
     {
-        if (x>vragiX) vragiX=vragiX+1;
-        else vragiX=vragiX-1;
+        if (NaPlatformV!=1) {if (x>vragiX) vragiX=vragiX+4; else vragiX=vragiX-4;
+                                if (x>vragiX)arrow=1; else arrow=-1;}
+        else
+        {if (x-250>vragiX) arrow=1;
+        if (x+250<vragiX) arrow=-1;
 
-        if (y>vragiY) vragiY=vragiY+1;
-        else vragiY=vragiY-1;
+            vragiX=vragiX+4*arrow;}
+
+
+    if (NaPlatformV!=1||vragiY>BaseY+10)
+    {
+        if (y>vragiY) vragiY=vragiY+4;
+            else vragiY=vragiY-4;
+    }
     }
 };
