@@ -9,7 +9,11 @@ class Platform
     HDC  image;
 
 
+ Platform()
+    {
 
+
+    }
     Platform(int x1, int y1, string file1, int w1, int h1)
     {
         platformX=x1;platformY=y1;file=file1;platformW=w1;platformH=h1;
@@ -38,10 +42,9 @@ class Platform
     int MoveLeft(int n)
     {
         platformX=platformX-n;
+
     }
-
     };
-
 
 class Background
 {
