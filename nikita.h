@@ -42,7 +42,9 @@ class Platform
     int MoveLeft(int n)
     {
         platformX=platformX-n;
+if(platformX<-2000){platformX = platformX + 3000 + 600,platformY = random(300,550);
 
+}
     }
     };
 
