@@ -17,6 +17,12 @@ class Platform
 
     }
 
+    Platform()
+    {
+
+
+    }
+
     int OnPlatformX(int x1)
     {
         if (x1>platformX && x1<platformX+platformW) return 1;
@@ -49,6 +55,7 @@ class Platform
     }
 
     };
+
 class Background
 {
     public:
@@ -67,7 +74,10 @@ int Draw()
     int MoveLeft(int b)
     {
     if(x<-1300 )x=1265;
-    else x=x-b;
+    if(x>1300 )x=-1265;
+    x=x-b;
+    /*if(x<-1300 )x=1265;
+    else x=x-b;*/
     }
 
 };
