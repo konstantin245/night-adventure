@@ -1,0 +1,16 @@
+C:\Users\User\source\repos\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ\bin\Debug\net8.0-windows\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ.exe
+C:\Users\User\source\repos\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ\bin\Debug\net8.0-windows\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ.deps.json
+C:\Users\User\source\repos\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ\bin\Debug\net8.0-windows\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ.runtimeconfig.json
+C:\Users\User\source\repos\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ\bin\Debug\net8.0-windows\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ.dll
+C:\Users\User\source\repos\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ\bin\Debug\net8.0-windows\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ.pdb
+C:\Users\User\source\repos\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ\obj\Debug\net8.0-windows\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ.Form1.resources
+C:\Users\User\source\repos\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ\obj\Debug\net8.0-windows\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ.csproj.GenerateResource.cache
+C:\Users\User\source\repos\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ\obj\Debug\net8.0-windows\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ\obj\Debug\net8.0-windows\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ\obj\Debug\net8.0-windows\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ.AssemblyInfo.cs
+C:\Users\User\source\repos\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ\obj\Debug\net8.0-windows\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ\obj\Debug\net8.0-windows\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ.dll
+C:\Users\User\source\repos\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ\obj\Debug\net8.0-windows\refint\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ.dll
+C:\Users\User\source\repos\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ\obj\Debug\net8.0-windows\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ.pdb
+C:\Users\User\source\repos\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ\obj\Debug\net8.0-windows\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ.genruntimeconfig.cache
+C:\Users\User\source\repos\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ\obj\Debug\net8.0-windows\ref\ГШГШЗЕ9ШЗЕПГШЖПЭПГШ.dll
